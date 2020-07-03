@@ -2,16 +2,16 @@ const hourHand = document.querySelector("#hour");
 const minuteHand = document.querySelector("#minute");
 const secondHand = document.querySelector("#second");
 
-// move the hands to the given number position using js
-let hrPosition = 20;
-let minPosition = 130;
-let secPosition = 267;
-
-//initiate date object and get hours, minutes and seconds 
+//initiate date object and get hours, minutes and seconds
 var date = new Date();
 let hr = date.getHours();
 let min = date.getMinutes();
 let sec = date.getSeconds();
+
+// move the hands according to the current time
+let hrPosition = hr * 360 / 12 ;
+let minPosition = (min * 360 / 60) + (sec * (360/60) / 60 );
+let secPosition = (sec * 360) / 60;
 
 hourHand.style.transform = "rotate(" + hrPosition + "deg)";
 minuteHand.style.transform = "rotate(" + minPosition + "deg)";
